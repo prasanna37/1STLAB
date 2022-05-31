@@ -17,21 +17,5 @@ then
 	else
 		echo "$uname is working for more than 1 minute"
 	fi
-else
-	echo "User has not logged in yet"
-	echo "Enter specified time in minutes"
-	read time
-	period=0
-	until who | grep -w $uname > /dev/null
-	do
-		sleep 60
-		period=`expr $period + 1`
-		if [ $period -eq $time ]
-		then
-			echo "$uname has not logged in since $time minutes"
-			exit
-		fi
-	done
-	echo "The User $uname has logged in now"
 fi
 
